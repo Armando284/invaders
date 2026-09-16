@@ -1219,7 +1219,14 @@ export class Game {
 		const aliveFactor = 0.55 + 0.45 * (this.formation.aliveCount / total)
 		const waveFactor = Math.max(0.4, 1 - 0.09 * (this.state.wave - 1))
 
-		return 1000 * aliveFactor * waveFactor
+		// Clutch: with three or fewer hostiles left the formation barrels
+		// down at double pace — the final-man sprint to the shield line.
+		const clutchFactor =
+			this.formation.aliveCount > 3 || this.formation.aliveCount === 0
+				? 1
+				: 0.55
+
+		return 1000 * aliveFactor * waveFactor * clutchFactor
 	}
 
 	private get shootInterval(): number {
