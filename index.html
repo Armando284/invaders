@@ -3,11 +3,54 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>invaders</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+    />
+    <meta name="color-scheme" content="dark" />
+    <title>INVADERS.EXE — Retro Terminal Invasion Arcade</title>
+    <meta
+      name="description"
+      content="INVADERS.EXE is a retro ASCII space invaders arcade. Defend the grid from hostile formations. A phosphor-green terminal shooter that runs in your browser."
+    />
+    <meta name="author" content="Armando" />
+    <meta
+      name="keywords"
+      content="invaders, space invaders, arcade, retro, terminal, ascii, browser game, retro shooter"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#04140b" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="INVADERS.EXE — Retro Terminal Invasion Arcade" />
+    <meta
+      property="og:description"
+      content="Defend the grid. Retro ASCII space invaders in a phosphor-green terminal. Browser arcade game."
+    />
   </head>
   <body>
-    <div id="app"></div>
+    <div class="frame">
+      <canvas id="game"></canvas>
+      <div id="boot">
+        <pre id="boot-text"></pre>
+      </div>
+      <div id="touch-controls" aria-hidden="true">
+        <div id="dpad">
+          <button class="dpad-btn dpad-up" data-key="ArrowUp" aria-label="Up">▲</button>
+          <button class="dpad-btn dpad-left" data-key="ArrowLeft" aria-label="Left">◀</button>
+          <button class="dpad-btn dpad-down" data-key="ArrowDown" aria-label="Down">▼</button>
+          <button class="dpad-btn dpad-right" data-key="ArrowRight" aria-label="Right">▶</button>
+        </div>
+        <div id="action-buttons">
+          <button class="action-btn action-fire" data-key=" " aria-label="Fire">FIRE</button>
+          <div id="action-row">
+            <button class="action-btn" data-key="Enter" aria-label="Start">START</button>
+            <button class="action-btn action-pause" data-key="p" aria-label="Pause">PAUSE</button>
+            <button class="action-btn action-copy" data-key="c" aria-label="Copy result">COPY</button>
+            <button class="action-btn action-mute" data-key="m" aria-label="Mute">MUTE</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
