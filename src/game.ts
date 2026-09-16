@@ -47,6 +47,10 @@ import {
 	SLOWMO_TIME,
 	STATS_KEY,
 	WAVE_CLEAR_BONUS,
+
+      MISSION_TYPES,
+      MISSION_LABELS,
+      MISSION_BONUS_MULT,
 	WAVE_INTRO_DURATION,
 	type DropType,
 } from './constants.ts'
@@ -118,6 +122,7 @@ export class Game {
 		slowmo: 0,
 		buff: null,
 		buffTimer: 0,
+		mission: null,
 		drops: [],
 		popups: [],
 		particles: [],
