@@ -31,6 +31,17 @@ export const SINE_MIN_WAVE = 5
 export const SINE_CHANCE = 0.3
 
 // Power-up drops.
+
+// Per-wave side missions (deterministic — same seed, same mission).
+export const MISSION_TYPES = ['sniper', 'brokenShields', 'ufoDouble'] as const
+export type MissionType = (typeof MISSION_TYPES)[number]
+export const MISSION_BONUS_MULT = 400 // × wave at wave clear
+export const MISSION_LABELS: Record<MissionType, string> = {
+	sniper: 'FUSILERO',
+	brokenShields: 'ESCUDOS ROTOS',
+	ufoDouble: 'UFO ×2',
+}
+
 export const DROP_CHANCE = 0.07
 export const DROP_SPEED = 1.5 // cells per second, downward
 export const DROP_TYPES = ['rapid', 'double', 'shield', 'bomb'] as const

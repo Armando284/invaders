@@ -57,6 +57,7 @@ export interface GameState {
 	slowmo: number
 	buff: 'rapid' | 'double' | 'shield' | null
 	buffTimer: number
+	mission: 'sniper' | 'brokenShields' | 'ufoDouble' | null
 	drops: Drop[]
 	popups: Popup[]
 	particles: Particle[]
