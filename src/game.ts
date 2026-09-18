@@ -667,6 +667,17 @@ export class Game {
 
 		this.ufo.active = false
 		this.ufo.respawnRandom()
+		// Misión variante determinista (misma semilla → misma misión).
+		if (this.state.wave >= 3) {
+			const mi = MISSION_TYPES[Math.floor(this.rng() * MISSION_TYPES.length)] ?? 'sniper'
+			this.state.mission = mi
+if (mi === 'brokenShields' && this.shields.length > 0) {
+				this.shields.splice(0, 2)
+			}
+		} else {
+			this.state.mission = null
+		}
+
 		bullet.alive = false
 		this.addScore(gained)
 		this.addPopup(
@@ -746,6 +757,15 @@ export class Game {
 
 		if (!this.waveDamaged) {
 			this.unlock('flawlessWave')
+		}
+
+		// Bonus de misión: la variante activa se completó al limpiar la ola (determinista).
+		if (this.state.mission !== null) {
+			const mb = MISSION_BONUS_MULT * this.state.wave
+			this.addScore(mb)
+
+			this.addPopup(`MISIÓN +${mb}`, CENTER_X, CENTER_Y, PALETTE_GOLD)
+			this.state.mission = null
 		}
 
 		const bonus = WAVE_CLEAR_BONUS * this.state.wave

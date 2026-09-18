@@ -493,6 +493,13 @@ export class Renderer {
 			ctx.fillStyle = PALETTE.green
 			ctx.font = uiFont(22)
 			ctx.fillText(`WAVE ${pad(this.state.wave, 2)}`, CANVAS_WIDTH / 2, ui(132))
+
+		if (this.state.mission !== null && this.state.mission !== undefined) {
+			ctx.fillStyle = PALETTE.gold
+			ctx.font = uiFont(11)
+			ctx.textAlign = 'center'
+			ctx.fillText(`MISIÓN: ${MISSION_LABELS[this.state.mission]}`, CANVAS_WIDTH / 2, ui(152))
+		}
 		})
 
 		ctx.fillStyle = ready ? PALETTE.white : '#5a7a5a'
