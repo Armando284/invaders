@@ -49,7 +49,6 @@ import {
 	WAVE_CLEAR_BONUS,
 
       MISSION_TYPES,
-      MISSION_LABELS,
       MISSION_BONUS_MULT,
 	WAVE_INTRO_DURATION,
 	type DropType,
